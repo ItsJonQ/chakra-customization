@@ -1,16 +1,16 @@
 import Head from 'next/head';
+import { Formik, Form, Field } from 'formik';
 import {
   Button,
   ButtonGroup,
   Heading,
   Stack,
   Text,
-  Input,
+  TextInput,
   FormControl,
   FormLabel,
   FormErrorMessage,
-} from '@chakra-ui/react';
-import { Formik, Form, Field } from 'formik';
+} from '../components/base';
 
 function FormikExample() {
   function validateName(value) {
@@ -39,7 +39,7 @@ function FormikExample() {
             {({ field, form }) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
                 <FormLabel htmlFor="name">First name</FormLabel>
-                <Input {...field} id="name" placeholder="name" />
+                <TextInput {...field} id="name" placeholder="name" />
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
@@ -62,15 +62,15 @@ export default function Home() {
   return (
     <div>
       <FormikExample />
-      <Stack spacing={3}>
-        <Input variant="outline" placeholder="Outline" />
-        <Input variant="filled" placeholder="Filled" />
-        <Input variant="flushed" placeholder="Flushed" />
-        <Input variant="unstyled" placeholder="Unstyled" />
+      <Stack>
+        <TextInput variant="outline" placeholder="Outline" />
+        <TextInput variant="filled" placeholder="Filled" />
+        <TextInput variant="flushed" placeholder="Flushed" />
+        <TextInput variant="unstyled" placeholder="Unstyled" />
       </Stack>
       <br />
       <Heading>Text</Heading>
-      <Stack spacing={3}>
+      <Stack>
         <Text fontSize="6xl">(6xl) In love with React & Next</Text>
         <Text fontSize="5xl">(5xl) In love with React & Next</Text>
         <Text fontSize="4xl">(4xl) In love with React & Next</Text>
