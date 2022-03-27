@@ -19,3 +19,13 @@ export const Button = React.forwardRef(
 );
 
 Button.displayName = 'Button';
+
+export const buttonStyles = {
+  baseStyle: {
+    background: 'white',
+    fontWeight: 'medium',
+  },
+  defaultProps: {
+    variant: 'outline',
+  },
+};

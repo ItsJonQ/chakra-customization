@@ -11,6 +11,7 @@ export * from './FormHelperText';
 export * from './FormLabel';
 export * from './Grid';
 export * from './HStack';
+export * from './Modal';
 export * from './RadioCard';
 export * from './Select';
 export * from './Spacer';

@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { whiten, darken } from '@chakra-ui/theme-tools';
 import { colors, spacing as space } from './tokens';
+import { buttonStyles } from '../components/base/Button';
 import { cardStyles, cardBodyStyles } from '../components/base/Card';
 import { textStyles } from '../components/base/Text';
 
@@ -194,11 +195,7 @@ const controlComponentDefaults = {
 };
 
 const components = {
-  Button: {
-    baseStyle: {
-      fontWeight: 'medium',
-    },
-  },
+  Button: buttonStyles,
   Input: controlComponentDefaults,
   NumberInput: controlComponentDefaults,
   PinInput: controlComponentDefaults,

@@ -6,6 +6,8 @@ import { Checkbox } from './Checkbox';
 import { Spacer } from './Spacer';
 import { HStack } from './HStack';
 
+export { useRadio } from '@chakra-ui/react';
+
 export const RadioCard = React.forwardRef(({ children, ...props }, ref) => {
   const { getInputProps, getCheckboxProps } = useRadio(props);
 
