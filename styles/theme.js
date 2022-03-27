@@ -5,6 +5,8 @@ import {
 } from '@chakra-ui/react';
 import { whiten, darken } from '@chakra-ui/theme-tools';
 import { colors, spacing as space } from './tokens';
+import { cardStyles, cardBodyStyles } from '../components/base/Card';
+import { textStyles } from '../components/base/Text';
 
 const blue = colors.blue[400];
 const brand = colors.brandBlue[300];
@@ -201,6 +203,9 @@ const components = {
   PinInput: controlComponentDefaults,
   Select: controlComponentDefaults,
   Textarea: controlComponentDefaults,
+  Card: cardStyles,
+  CardBody: cardBodyStyles,
+  Text: textStyles,
 };
 
 const extendedTheme = extendTheme({
@@ -223,5 +228,3 @@ export const theme = {
     ...colorsForChakra,
   },
 };
-
-console.log(theme);
