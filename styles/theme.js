@@ -179,6 +179,7 @@ const shadows = {
 
 const global = {
   'html, body': {
+    background: 'gray.50',
     fontSize: '15px',
   },
 };

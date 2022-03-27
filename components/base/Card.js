@@ -35,6 +35,7 @@ const cardSizes = {
 
 export const cardStyles = {
   baseStyle: {
+    background: 'white',
     padding: 4,
     borderColor: 'gray.100',
     borderWidth: '1px',
