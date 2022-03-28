@@ -37,7 +37,7 @@ export const cardStyles = {
   baseStyle: {
     background: 'white',
     padding: 4,
-    borderColor: 'gray.100',
+    borderColor: 'gray.200',
     borderWidth: '1px',
     borderRadius: 'md',
     boxShadow: 'sm',
@@ -51,6 +51,10 @@ export const cardStyles = {
 export const cardBodyStyles = {
   baseStyle: {
     padding: 4,
+    '& + &': {
+      borderTop: '1px solid',
+      borderColor: 'gray.200',
+    },
   },
   sizes: cardSizes,
   defaultProps: {

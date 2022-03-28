@@ -5,8 +5,11 @@ import {
 } from '@chakra-ui/react';
 import { whiten, darken } from '@chakra-ui/theme-tools';
 import { colors, spacing as space } from './tokens';
+import { avatarStyles } from '../components/base/Avatar';
 import { buttonStyles } from '../components/base/Button';
 import { cardStyles, cardBodyStyles } from '../components/base/Card';
+import { linkStyles } from '../components/base/Link';
+import { menuStyles } from '../components/base/Menu';
 import { textStyles } from '../components/base/Text';
 
 const blue = colors.blue[400];
@@ -176,6 +179,12 @@ const spacing = {
 
 const shadows = {
   outline: '0 0 0 2px rgba(67, 83, 255, 0.5)',
+  0: '0 0 0 0 rgba(0, 0, 0, 0)',
+  1: '0 1px 2px 0 rgba(0, 0, 0, 0.1)',
+  2: '0 1px 4px 0 rgba(0, 0, 0, 0.1)',
+  3: '0 2px 8px 0 rgba(0, 0, 0, 0.1)',
+  4: '0 4px 16px 0 rgba(0, 0, 0, 0.2)',
+  5: '0 6px 24px 0 rgba(0, 0, 0, 0.2)',
 };
 
 const global = {
@@ -195,15 +204,18 @@ const controlComponentDefaults = {
 };
 
 const components = {
+  Avatar: avatarStyles,
   Button: buttonStyles,
+  Card: cardStyles,
+  CardBody: cardBodyStyles,
   Input: controlComponentDefaults,
+  Link: linkStyles,
+  Menu: menuStyles,
   NumberInput: controlComponentDefaults,
   PinInput: controlComponentDefaults,
   Select: controlComponentDefaults,
-  Textarea: controlComponentDefaults,
-  Card: cardStyles,
-  CardBody: cardBodyStyles,
   Text: textStyles,
+  Textarea: controlComponentDefaults,
 };
 
 const extendedTheme = extendTheme({

@@ -38,7 +38,7 @@ export const Modal = React.forwardRef(
       portalProps,
       preserveScrollBarGap,
       returnFocusOnClose,
-      scrollBehavior = 'inside',
+      scrollBehavior,
       size,
       trapFocus,
       variant,
@@ -76,12 +76,7 @@ export const Modal = React.forwardRef(
     return (
       <ChakraModal {...modalProps} ref={ref}>
         <ChakraModalOverlay />
-        <ChakraModalContent
-          maxWidth={maxWidth}
-          marginTop="2.5%"
-          marginBottom="2.5%"
-          {...props}
-        >
+        <ChakraModalContent maxWidth={maxWidth} {...props}>
           {children}
         </ChakraModalContent>
       </ChakraModal>
