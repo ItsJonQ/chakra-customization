@@ -5,11 +5,13 @@ import {
 } from '@chakra-ui/react';
 import { whiten, darken } from '@chakra-ui/theme-tools';
 import { colors, spacing as space } from './tokens';
+import { alertStyles } from '../components/base/Alert';
 import { avatarStyles } from '../components/base/Avatar';
 import { buttonStyles } from '../components/base/Button';
 import { cardStyles, cardBodyStyles } from '../components/base/Card';
 import { linkStyles } from '../components/base/Link';
 import { menuStyles } from '../components/base/Menu';
+import { switchStyles } from '../components/base/Switch';
 import { textStyles } from '../components/base/Text';
 
 const blue = colors.blue[400];
@@ -192,6 +194,9 @@ const global = {
     background: 'gray.50',
     fontSize: '15px',
   },
+  body: {
+    paddingBottom: '10vh',
+  },
 };
 
 const styles = { global };
@@ -204,6 +209,7 @@ const controlComponentDefaults = {
 };
 
 const components = {
+  Alert: alertStyles,
   Avatar: avatarStyles,
   Button: buttonStyles,
   Card: cardStyles,
@@ -214,6 +220,7 @@ const components = {
   NumberInput: controlComponentDefaults,
   PinInput: controlComponentDefaults,
   Select: controlComponentDefaults,
+  Switch: switchStyles,
   Text: textStyles,
   Textarea: controlComponentDefaults,
 };

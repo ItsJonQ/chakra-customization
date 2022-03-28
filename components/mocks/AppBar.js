@@ -11,9 +11,9 @@ export const AppBar = React.forwardRef(({ children, ...props }, ref) => {
           <Icon as={FiAperture} width="24px" height="24px" size="24px" />
           <Spacer height="100%">
             <HStack spacing={6} height="100%">
-              <NextLink href="/components" passHref>
+              <NextLink href="/" passHref>
                 <Link color="white" _hover={{ textDecoration: 'none' }}>
-                  Components
+                  Examples
                 </Link>
               </NextLink>
               {children}

@@ -1,165 +1,67 @@
 import Head from 'next/head';
-import { Formik, Form, Field } from 'formik';
+import NextLink from 'next/link';
 import {
-  Button,
-  ButtonGroup,
-  Heading,
-  Stack,
-  Text,
-  TextInput,
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
+  Card,
+  CardBody,
+  Subheading,
+  Container,
+  UnorderedList,
+  ListItem,
+  Link,
+  PageHeader,
+  Spacer,
+  VStack,
 } from '../components/base';
+import { AppBar } from '../components/mocks';
 
-function FormikExample() {
-  function validateName(value) {
-    let error;
-    if (!value) {
-      error = 'Name is required';
-    } else if (value.toLowerCase() !== 'naruto') {
-      error = "Jeez! You're not a fan 😱";
-    }
-    return error;
-  }
-
+/**
+ * A Next.js implementation detail
+ * @see https://nextjs.org/docs/api-reference/next/link
+ */
+const ComponentLink = ({ href, ...props }) => {
   return (
-    <Formik
-      initialValues={{ name: 'Sasuke' }}
-      onSubmit={(values, actions) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          actions.setSubmitting(false);
-        }, 1000);
-      }}
-    >
-      {(props) => (
-        <Form>
-          <Field name="name" validate={validateName}>
-            {({ field, form }) => (
-              <FormControl isInvalid={form.errors.name && form.touched.name}>
-                <FormLabel htmlFor="name">First name</FormLabel>
-                <TextInput {...field} id="name" placeholder="name" />
-                <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-              </FormControl>
-            )}
-          </Field>
-          <Button
-            mt={4}
-            colorScheme="brand"
-            isLoading={props.isSubmitting}
-            type="submit"
-          >
-            Submit
-          </Button>
-        </Form>
-      )}
-    </Formik>
+    <ListItem>
+      <NextLink href={href} passHref>
+        <Link {...props} />
+      </NextLink>
+    </ListItem>
   );
-}
+};
 
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <FormikExample />
-      <Stack>
-        <TextInput variant="outline" placeholder="Outline" />
-        <TextInput variant="filled" placeholder="Filled" />
-        <TextInput variant="flushed" placeholder="Flushed" />
-        <TextInput variant="unstyled" placeholder="Unstyled" />
-      </Stack>
-      <br />
-      <Heading>Text</Heading>
-      <Stack>
-        <Text fontSize="6xl">(6xl) In love with React & Next</Text>
-        <Text fontSize="5xl">(5xl) In love with React & Next</Text>
-        <Text fontSize="4xl">(4xl) In love with React & Next</Text>
-        <Text fontSize="3xl">(3xl) In love with React & Next</Text>
-        <Text fontSize="2xl">(2xl) In love with React & Next</Text>
-        <Text fontSize="xl">(xl) In love with React & Next</Text>
-        <Text fontSize="lg">(lg) In love with React & Next</Text>
-        <Text fontSize="md">(md) In love with React & Next</Text>
-        <Text fontSize="sm">(sm) In love with React & Next</Text>
-        <Text fontSize="xs">(xs) In love with React & Next</Text>
-      </Stack>
-      <br />
-      <Heading>Buttons</Heading>
-      <Stack direction="row" spacing={4} align="center">
-        <Button colorScheme="brand" variant="solid">
-          Button
-        </Button>
-        <Button colorScheme="brand" variant="outline">
-          Button
-        </Button>
-        <Button colorScheme="brand" variant="ghost">
-          Button
-        </Button>
-        <Button colorScheme="brand" variant="link">
-          Button
-        </Button>
-      </Stack>
-      <Stack direction="row" spacing={4} align="center">
-        <Button colorScheme="yellow" variant="solid">
-          Button
-        </Button>
-        <Button colorScheme="yellow" variant="outline">
-          Button
-        </Button>
-        <Button colorScheme="yellow" variant="ghost">
-          Button
-        </Button>
-        <Button colorScheme="yellow" variant="link">
-          Button
-        </Button>
-      </Stack>
-      <Stack direction="row" spacing={4} align="center">
-        <Button colorScheme="green" variant="solid">
-          Button
-        </Button>
-        <Button colorScheme="green" variant="outline">
-          Button
-        </Button>
-        <Button colorScheme="green" variant="ghost">
-          Button
-        </Button>
-        <Button colorScheme="green" variant="link">
-          Button
-        </Button>
-      </Stack>
-      <Stack direction="row" spacing={4} align="center">
-        <Button colorScheme="red" variant="solid">
-          Button
-        </Button>
-        <Button colorScheme="red" variant="outline">
-          Button
-        </Button>
-        <Button colorScheme="red" variant="ghost">
-          Button
-        </Button>
-        <Button colorScheme="red" variant="link">
-          Button
-        </Button>
-      </Stack>
-      <Stack direction="row" spacing={4} align="center">
-        <Button colorScheme="orange" variant="solid">
-          Button
-        </Button>
-        <Button colorScheme="orange" variant="outline">
-          Button
-        </Button>
-        <Button colorScheme="orange" variant="ghost">
-          Button
-        </Button>
-        <Button colorScheme="orange" variant="link">
-          Button
-        </Button>
-      </Stack>
-      <Stack direction="row" spacing={4} align="center">
-        <Button>Button</Button>
-        <Button variant="outline">Button</Button>
-        <Button variant="ghost">Button</Button>
-        <Button variant="link">Button</Button>
-      </Stack>
-    </div>
+    <>
+      <AppBar />
+      <PageHeader title="Examples" />
+      <Container>
+        <Card size="none">
+          <CardBody size="lg">
+            <VStack>
+              <Subheading>Base examples</Subheading>
+              <UnorderedList paddingLeft={4}>
+                <ComponentLink href="/components/alert">Alert</ComponentLink>
+                <ComponentLink href="/components/button">Button</ComponentLink>
+                <ComponentLink href="/components/menu">Menu</ComponentLink>
+                <ComponentLink href="/components/radio-card">
+                  RadioCard
+                </ComponentLink>
+                <ComponentLink href="/components/switch">Switch</ComponentLink>
+              </UnorderedList>
+            </VStack>
+          </CardBody>
+          <CardBody size="lg">
+            <VStack>
+              <Subheading>Custom examples</Subheading>
+              <UnorderedList paddingLeft={4}>
+                <ComponentLink href="/examples/checkout-modal">
+                  Checkout modal
+                </ComponentLink>
+                <ComponentLink href="/examples/form">Form</ComponentLink>
+              </UnorderedList>
+            </VStack>
+          </CardBody>
+        </Card>
+      </Container>
+    </>
   );
 }

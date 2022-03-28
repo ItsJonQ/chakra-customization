@@ -1,8 +1,8 @@
 import React from 'react';
-import { useRadioGroup } from '@chakra-ui/react';
 import {
   Body,
   BodyLarge,
+  useRadioGroup,
   Button,
   Caption,
   Container,
@@ -14,8 +14,10 @@ import {
   Divider,
   FormControl,
   FormLabel,
+  Heading,
   Subheading,
   useDisclosure,
+  PageHeader,
   Modal,
   ModalBody,
   ModalHeader,
@@ -25,7 +27,8 @@ import {
   Spacer,
   TextInput,
   VStack,
-} from '../components/base';
+} from '../../components/base';
+import { AppBar } from '../../components/mocks';
 
 function RadioCardExample() {
   const options = ['Option 1', 'Option 2'];
@@ -122,7 +125,7 @@ const AsideContent = () => {
   );
 };
 
-export default function Page() {
+const CheckoutModalExample = () => {
   const { isOpen, onOpen, onClose } = useDisclosure({ defaultIsOpen: true });
 
   return (
@@ -148,6 +151,27 @@ export default function Page() {
           </Grid>
         </ModalBody>
       </Modal>
+    </>
+  );
+};
+
+export default function Page() {
+  return (
+    <>
+      <AppBar />
+      <PageHeader title="Checkout Modal" />
+      <Container>
+        <Card size="none">
+          <CardBody size="lg">
+            <VStack>
+              <Heading>Example</Heading>
+              <Spacer>
+                <CheckoutModalExample />
+              </Spacer>
+            </VStack>
+          </CardBody>
+        </Card>
+      </Container>
     </>
   );
 }
