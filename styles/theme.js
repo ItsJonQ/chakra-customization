@@ -225,18 +225,21 @@ const components = {
   Textarea: controlComponentDefaults,
 };
 
-const extendedTheme = extendTheme({
-  borderRadius,
-  components,
-  fontSizes,
-  fontWeights,
-  radii: borderRadius.radii,
-  shadows,
-  sizes: space,
-  space,
-  spacing,
-  styles,
-});
+const extendedTheme = extendTheme(
+  {
+    borderRadius,
+    components,
+    fontSizes,
+    fontWeights,
+    radii: borderRadius.radii,
+    shadows,
+    sizes: space,
+    space,
+    spacing,
+    styles,
+  },
+  withDefaultSize({ size: 'md' })
+);
 
 export const theme = {
   ...extendedTheme,

@@ -42,7 +42,7 @@ const CustomMenuContent = ({ avatar, children }) => {
   return (
     <HStack spacing={3}>
       {avatarMarkup}
-      <Spacer>
+      <Spacer alignSelf="auto">
         <Text>{children}</Text>
       </Spacer>
     </HStack>

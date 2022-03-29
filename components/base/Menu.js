@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Menu as ChakraMenu,
   MenuItemOption as ChakraMenuItemOption,
   MenuButton as ChakraMenuButton,
 } from '@chakra-ui/react';
@@ -7,10 +8,8 @@ import { Button } from './Button';
 import { HStack } from './HStack';
 import { Spacer } from './Spacer';
 import { Icon } from './Icon';
-import { FiChevronDown } from 'react-icons/fi';
 
 export {
-  Menu,
   MenuList,
   MenuItem,
   MenuGroup,
@@ -18,12 +17,35 @@ export {
   MenuDivider,
 } from '@chakra-ui/react';
 
+const ChevronDown = (props) => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path
+      fill="currentColor"
+      d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+    />
+  </svg>
+);
+
+export const Menu = React.forwardRef((props, ref) => {
+  return <ChakraMenu gutter={4} {...props} ref={ref} />;
+});
+
+Menu.displayName = 'Menu';
+
 export const MenuButton = React.forwardRef((props, ref) => {
   return (
     <ChakraMenuButton
       as={Button}
       textAlign="left"
-      rightIcon={<Icon as={FiChevronDown} />}
+      rightIcon={
+        <Icon
+          as={ChevronDown}
+          width="20px"
+          height="20px"
+          marginLeft={1}
+          marginRight="-8px"
+        />
+      }
       {...props}
       ref={ref}
     />
@@ -38,7 +60,7 @@ export const MenuItemOption = React.forwardRef(
       <ChakraMenuItemOption {...props} ref={ref}>
         <HStack spacing={spacing}>
           {leftIcon ? leftIcon : null}
-          <Spacer>{children}</Spacer>
+          <Spacer alignSelf="auto">{children}</Spacer>
         </HStack>
       </ChakraMenuItemOption>
     );
@@ -58,8 +80,8 @@ export const menuStyles = {
       textAlign: 'left',
     },
     item: {
-      borderBottom: '1px solid',
-      borderBottomColor: 'gray.100',
+      // borderBottom: '1px solid',
+      // borderBottomColor: 'gray.100',
       paddingBottom: 2,
       paddingTop: 2,
       _focus: {
@@ -71,15 +93,15 @@ export const menuStyles = {
       _expanded: {
         background: 'gray.50',
       },
-      '&:first-child': {
-        borderTopLeftRadius: 'md',
-        borderTopRightRadius: 'md',
-      },
-      '&:last-child': {
-        borderBottom: 'none',
-        borderBottomLeftRadius: 'md',
-        borderBottomRightRadius: 'md',
-      },
+      // '&:first-child': {
+      //   borderTopLeftRadius: 'md',
+      //   borderTopRightRadius: 'md',
+      // },
+      // '&:last-child': {
+      //   borderBottom: 'none',
+      //   borderBottomLeftRadius: 'md',
+      //   borderBottomRightRadius: 'md',
+      // },
       '.chakra-menu__icon-wrapper': {
         color: 'brand.500',
         order: 2,
@@ -89,8 +111,12 @@ export const menuStyles = {
     },
     list: {
       boxShadow: 3,
-      padding: 0,
+      paddingTop: 1,
+      paddingBottom: 1,
       minWidth: 180,
     },
+  },
+  defaultProps: {
+    gutter: 8,
   },
 };
